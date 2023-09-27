@@ -4,6 +4,8 @@ This document is used to build DNS with bind9 service on ubuntu.
 
 ## Bind9 Installation
 
+Note: super user required, contact server/DNS owner to update.
+
 ### With Internet Connection
 
 If internet is reachable, using below CLI:
