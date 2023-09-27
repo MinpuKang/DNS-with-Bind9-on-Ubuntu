@@ -74,7 +74,7 @@ More detail of status: https://linuxprograms.wordpress.com/2010/05/11/status-dpk
 Detail of dpkg https://manpages.ubuntu.com/manpages/trusty/man1/dpkg.1.html
 
 
-## Configuration
+## Configuration Files
 
 Note: super user required, contact server/DNS owner to update.
 
@@ -154,6 +154,34 @@ total 28
 #
 ```
 
+Zone file includes the TTL, ORIGIN(zone) and detail A/AAAA Record, NAPTR record or SRV record, an example as below:
+```
+# cd /var/cache/bind/        ->based on directory in named.conf.options
+# vi db.hk314.top            ->based on zone file in named.conf.local
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     localhost. root.localhost. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      localhost.
+@       IN      A       127.0.0.1
+@       IN      AAAA    ::1
+
+;$ORIGIN    hk314.top.
+
+;===========================================================
+;DNS configuration: services including all are examples here
+;===========================================================
+
+test.hk314.top.                                 IN A   1.1.1.10
+```
+
 ## How to Add new Record
 
 Note: super user required, contact server/DNS owner to update.
@@ -168,7 +196,7 @@ If the zone is defined in named.conf.local, then add the new record in mapped fi
 
 The record format is as below for A Record, if zone is followed in the record, the last dot must be required.
 ```
-test.hk314.top.                                 IN A   1.1.1.1
+test1.hk314.top.                                 IN A   1.1.1.1
 ```
 
 NAPTR record as below, if zone is followed in the record, the last dot must be required.
@@ -272,3 +300,4 @@ systemctl status dnsmasq.service
 A Windows SW for EPC/5GC DNS Configure Generation as assets with below link can be used to generate EPC/5GC DNS record:
 
 https://github.com/MinpuKang/DNS-Config-Generator
+
