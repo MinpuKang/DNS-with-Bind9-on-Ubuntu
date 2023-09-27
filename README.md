@@ -16,7 +16,7 @@ If no internet, using dpkg to install all dependency packages one by one until b
 
 Download SW, here is a summary for the dependency package for bind9 v9.16:
 
- https://github.com/MinpuKang/DNS-with-Bind9-on-Ubuntu/tree/main/ubuntu-bind9-dependancy-packages-u
+https://github.com/MinpuKang/DNS-with-Bind9-on-Ubuntu/tree/main/ubuntu-bind9-dependancy-packages-u
 
 Or if above one is not available, can download one by one from https://pkgs.org/
 
