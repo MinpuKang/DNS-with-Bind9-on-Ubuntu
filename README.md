@@ -22,7 +22,7 @@ Or if above one is not available, can download one by one from https://pkgs.org/
 
 Install CLI:
 
-```dpkg -I <package name>```
+```dpkg -i <package name>```
 
 
 ###	Package Installed Status
@@ -223,7 +223,7 @@ If record zone is not defined in named.conf.local, need to add zone-file mapping
 1.	Add zone-file maping in named.conf.local
 ```
 # vi named.conf.local 
-………………………..
+………………………
 zone "example.com" {
     type master;
     file "db.example.com";
