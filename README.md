@@ -16,15 +16,35 @@ If internet is reachable, using below CLI:
 
 If no internet, using dpkg to install all dependency packages one by one until bind9 can be installed.
 
-Download SW, here is a summary for the dependency package for bind9 v9.16:
+Check if any bind9 related sw installed or not:
+```
+dpkg -l | grep -i <string>
 
+e.g.:
+
+#  dpkg -l | grep bind9
+ii  bind9-dnsutils                             1:9.18.18-0ubuntu0.22.04.1              amd64        Clients provided with BIND 9
+ii  bind9-host                                 1:9.18.18-0ubuntu0.22.04.1              amd64        DNS Lookup Utility
+ii  bind9-libs:amd64                           1:9.18.18-0ubuntu0.22.04.1              amd64        Shared Libraries used by BIND 9
+```
+If there are some sw installed, then try to find the matched version of bind9 to install, like above printout shows some sw for bin9 install with version 9.18.18-0ubuntu0.22.04.1, then it is better to install bind9 with the same version which can be found and download from https://pkgs.org/, otherwise some cli like dig cannot be used if other version installed.
+
+Anyway, if only focus on bind9 as DNS, then can download SW with below link with a summary for the dependency package for bind9 v9.16.37 and 9.18.18:
 [https://github.com/MinpuKang/DNS-with-Bind9-on-Ubuntu/tree/main/ubuntu-bind9-dependancy-packages-u](https://codeload.github.com/MinpuKang/DNS-with-Bind9-on-Ubuntu/zip/refs/heads/main)
 
 Or if above one is not available, can download one by one from https://pkgs.org/
 
+After download then upload to Ubuntu system, perform unzip:
+
+```unzip DNS-with-Bind9-on-Ubuntu-main.zip```
+
+
 Install CLI:
 
 ```dpkg -i <package name>```
+
+OR install all with wildcard *, e.g.:
+```dpkg -i DNS-with-Bind9-on-Ubuntu-main/ubuntu-bind9-dependancy-packages-u/*.deb```
 
 
 ###	Package Installed Status
@@ -37,14 +57,12 @@ dpkg -l | grep -i <string>
 e.g.:
 
 #  dpkg -l | grep bind9
-
-ii  bind9                                 1:9.16.37-1~deb11u1                   amd64        Internet Domain Name Server
-ii  bind9-dnsutils                        1:9.16.1-0ubuntu2.12                  amd64        Clients provided with BIND 9
-ii  bind9-doc                             1:9.18.16-1~deb12u1                   all          Documentation for BIND 9
-ii  bind9-host                            1:9.16.1-0ubuntu2.12                  amd64        DNS Lookup Utility
-ii  bind9-libs:amd64                      1:9.16.37-1~deb11u1                   amd64        Shared Libraries used by BIND 9
-ii  bind9-utils                           1:9.16.37-1~deb11u1                   amd64        Utilities for BIND 9
-iU  bind9utils                            1:9.18.16-1~deb12u1                   all          Transitional package for bind9-utils
+ii  bind9                                      1:9.18.18-0ubuntu0.22.04.1              amd64        Internet Domain Name Server
+ii  bind9-dnsutils                             1:9.18.18-0ubuntu0.22.04.1              amd64        Clients provided with BIND 9
+ii  bind9-host                                 1:9.18.18-0ubuntu0.22.04.1              amd64        DNS Lookup Utility
+ii  bind9-libs:amd64                           1:9.18.18-0ubuntu0.22.04.1              amd64        Shared Libraries used by BIND 9
+ii  bind9-utils                                1:9.18.18-0ubuntu0.22.04.1              amd64        Utilities for BIND 9
+......
 
 The first three columns of the output show the desired action, the package status, and errors, in that order.
           Desired action:
