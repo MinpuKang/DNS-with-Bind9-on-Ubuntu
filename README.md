@@ -30,6 +30,7 @@ ii  bind9-libs:amd64                           1:9.18.18-0ubuntu0.22.04.1       
 If there are some sw installed, then try to find the matched version of bind9 to install, like above printout shows some sw for bin9 install with version 9.18.18-0ubuntu0.22.04.1, then it is better to install bind9 with the same version which can be found and download from https://pkgs.org/, otherwise some cli like dig cannot be used if other version installed.
 
 Anyway, if only focus on bind9 as DNS, then can download SW with below link with a summary for the dependency package for bind9 v9.16.37 and 9.18.18:
+
 [https://github.com/MinpuKang/DNS-with-Bind9-on-Ubuntu/tree/main/ubuntu-bind9-dependancy-packages-u](https://codeload.github.com/MinpuKang/DNS-with-Bind9-on-Ubuntu/zip/refs/heads/main)
 
 Or if above one is not available, can download one by one from https://pkgs.org/
@@ -43,8 +44,9 @@ Install CLI:
 
 ```dpkg -i <package name>```
 
-OR install all with wildcard *, e.g.:
-```dpkg -i DNS-with-Bind9-on-Ubuntu-main/ubuntu-bind9-dependancy-packages-u/*.deb```
+OR install all with wildcard *, for example install version 9.18.18:
+
+```sudo dpkg -i DNS-with-Bind9-on-Ubuntu-main/bind9-v9.18.18-deb-package/*.deb```
 
 
 ###	Package Installed Status
